@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: employee-management-rest-api
+
+app:
+  name: Employee Management REST API
+  default-department: HR
+  max-salary: 10000000
+
+logging:
+  level:
+    root: INFO
+    com.employee.ems: INFO
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs

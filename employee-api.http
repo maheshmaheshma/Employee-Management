@@ -1,0 +1,71 @@
+### Create employee
+POST http://localhost:8080/api/v1/employees
+Content-Type: application/json
+
+{
+  "firstName": "Mahesh",
+  "lastName": "Mamidi",
+  "email": "mahesh@example.com",
+  "phone": "9876543210",
+  "department": "IT",
+  "designation": "Junior Software Engineer",
+  "salary": 45000.00,
+  "dateOfJoining": "2025-06-15"
+}
+
+### List employees with filters and sorting
+GET http://localhost:8080/api/v1/employees?department=IT&status=ACTIVE&sortBy=salary&order=desc
+
+### Get employee by ID
+GET http://localhost:8080/api/v1/employees/1
+
+### Full update
+PUT http://localhost:8080/api/v1/employees/1
+Content-Type: application/json
+
+{
+  "firstName": "Mahesh",
+  "lastName": "Mamidi",
+  "email": "mahesh.updated@example.com",
+  "phone": "9876543210",
+  "department": "IT",
+  "designation": "Software Engineer",
+  "salary": 50000.00,
+  "dateOfJoining": "2025-06-15"
+}
+
+### Deactivate employee
+PATCH http://localhost:8080/api/v1/employees/1/status
+Content-Type: application/json
+
+{"status":"INACTIVE"}
+
+### Activate employee
+PATCH http://localhost:8080/api/v1/employees/1/status
+Content-Type: application/json
+
+{"status":"ACTIVE"}
+
+### Search
+GET http://localhost:8080/api/v1/employees/search?keyword=mahesh
+
+### List by department
+GET http://localhost:8080/api/v1/employees/department/IT
+
+### Statistics
+GET http://localhost:8080/api/v1/employees/stats
+
+### Permanent delete
+DELETE http://localhost:8080/api/v1/employees/1
+
+### Failure: invalid employee
+POST http://localhost:8080/api/v1/employees
+Content-Type: application/json
+
+{"firstName":"M","email":"wrong","phone":"123","salary":-1}
+
+### Failure: missing employee
+GET http://localhost:8080/api/v1/employees/99999
+
+### Failure: unsupported sort field
+GET http://localhost:8080/api/v1/employees?sortBy=password
