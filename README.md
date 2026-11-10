@@ -107,16 +107,20 @@ SERVER_PORT=8081 APP_MAX_SALARY=2500000 mvn spring-boot:run
 - `EmployeeControllerTest`: 201 create, 400 validation failure and 404 missing record.
 - `employee-api.http`: example requests for every endpoint plus failure scenarios. Open it in IntelliJ IDEA or VS Code with a compatible REST client.
 
-## Git workflow
+## Git workflow and release process
 
 ```bash
-git init
-git add .
-git commit -m "feat: implement employee management REST API"
-git switch -c feature/employee-api
+git switch develop
+git pull --ff-only origin develop
+git switch -c feature/<short-description>
+git add <related-files>
+git commit -m "<type>: describe one focused change"
+git push -u origin feature/<short-description>
 ```
 
-For a real submission, push to your GitHub repository and include screenshots of Swagger UI. Do not commit `target/`, credentials, or IDE-specific files.
+Open a pull request from the feature branch into `develop`, wait for review and checks, then merge it. Promote the tested `develop` branch to `main` through a pull request. Use `fix/` for defect corrections and `hotfix/` for urgent production fixes. Keep commits focused and never commit `target/`, credentials, or IDE-specific files.
+
+The `v1.0.0` release marks the initial REST API baseline. The package name is `com.mahesh.ems`, matching the Maven `groupId`. Create releases from reviewed tags on `main` and include screenshots of Swagger UI when submitting. Do not commit `target/`, credentials, or IDE-specific files.
 
 ## Production-readiness notes
 
