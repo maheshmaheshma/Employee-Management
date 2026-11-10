@@ -107,7 +107,7 @@ SERVER_PORT=8081 APP_MAX_SALARY=2500000 mvn spring-boot:run
 - `EmployeeControllerTest`: 201 create, 400 validation failure and 404 missing record.
 - `employee-api.http`: example requests for every endpoint plus failure scenarios. Open it in IntelliJ IDEA or VS Code with a compatible REST client.
 
-## Git workflow
+## Git workflow and release process
 
 ```bash
 git init
@@ -116,7 +116,7 @@ git commit -m "feat: implement employee management REST API"
 git switch -c feature/employee-api
 ```
 
-For a real submission, push to your GitHub repository and include screenshots of Swagger UI. Do not commit `target/`, credentials, or IDE-specific files.
+For a real submission, push to your GitHub repository and include screenshots of Swagger UI. Create a release from a reviewed tag, and do not commit `target/`, credentials, or IDE-specific files.
 
 ## Production-readiness notes
 
